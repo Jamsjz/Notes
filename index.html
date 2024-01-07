@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Explain advantages and disadvantages of computer network.
+A computer network is defined as the collection of two or more autonomous computers that are interconnected together for sharing resources with the help of transmission media and a set of protocols.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Advantages of Computer Network:**
+
+1. **Sharing resources:** Hardware resources such as processors, storage devices, printers, scanners, etc., can be shared among users using a computer network. This helps to minimize the operational cost of an organization.
+1. &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Faster and cheaper communication:** Communication has become very fast and inexpensive, allowing information to be sent over long distances through a network.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Centralized control:** All network resources, such as computers, printers, files, databases, etc., can be managed and controlled by a central connecting computer, also known as the server.
+1. &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Backup and recovery:** The server is used to keep data as a backup. It maintains a backup of all individual computer information.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Remote and mobile access:** A remote user can access resources from a distance using a computer network.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Disadvantages of Computer Network:**
+
+1. &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Expensive:** Installing a computer network requires additional costs to purchase networking devices such as hubs, switches, cables, etc.
+1. &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Security problems:** Network security is a challenging job for network administrators in order to protect network resources from unauthorized users and physical destruction.
+1. &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Needs technical person:** It is difficult to install and operate a good computer network without the expertise of a technically skilled person.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Discuss different types of computer network on the basis of size.
+
+Based on the notes you've provided, here is a discussion of the different types of computer networks classified by size:
+
+1. **Personal Area Network (PAN):** This is the smallest network which is very personal to a user. This may include Bluetooth or wired USB devices, connecting computer peripherals within an individual's workspace.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+3. **Local Area Network (LAN):** A LAN connects network devices over a relatively short distance. A networked office building, school, or home usually contains a single LAN, though sometimes one building will contain a few small LANs, and occasionally a LAN will span a group of nearby buildings.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+3. **Metropolitan Area Network (MAN):** A MAN spans a larger area than a LAN and as the name suggests, it covers the area of a city. It is designed to extend over an entire city. It may be a single network such as a cable television network, or it may be a means of connecting a number of LANs into a larger network so that resources may be shared LAN-to-LAN as well as device-to-device.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **Wide Area Network (WAN):** A WAN spans a large geographic area, such as a state, province, or country. WANs often connect multiple smaller networks, such as LANs or MANs. The Internet is the best-known example of a public WAN.
+    
+5. **Campus Area Network (CAN):** The networks are larger than LANs but smaller than MANs. CANs are often used to connect a variety of LANs within an area that is larger than a LAN but smaller than a MAN, such as a university campus or corporate campus.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+6. **Storage-Area Network (SAN):** A SAN is a network designed to attach computer storage devices such as disk array controllers and tape libraries to servers. SANs can be accessed in the same fashion as a drive attached to a server.
+    
+7. **System-Area Network (also known as SAN):** This term is fairly synonymous with the more commonly used term cluster area network. The phrase tends to be used to describe a network that connects high-performance computers with high-speed connections in a cluster configuration.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Each type of network has its own purpose and context where it is most beneficial, and the choice of network type is dictated by the scale, structure, and requirements of the organization or environment in which it is implemented.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### What do you mean by network topology? Explain the different types of network topologies.
+
+Network topology refers to the physical or logical layout of a network. It defines the structure, design, and layout of the network's components, including its nodes (like computers and network devices) and connecting lines (like cables or wireless signals). The topology determines how the data flows within the network from one device to another, and it can affect the network's performance and scalability.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Here are the different types of network topologies mentioned in your notes:
+
+1. **Bus Topology:**
+    - **Description:** In a bus topology, all computers are connected to a single continuous cable called the 'bus' which acts as the backbone of the network.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Advantages:**
+	- Simple and easy to set up and extend.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Requires less cable compared to other topologies.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Individual computer failures do not affect the entire network.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Easy to connect and disconnect computers.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Disadvantages:**
+	- High data traffic can slow the network.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->If the main cable fails, the entire network goes down.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Difficult to troubleshoot and find faults in the cable.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+2. **Star Topology:**
+    
+    - **Description:** In a star topology, all computers are connected to a central connecting device such as a hub, switch, or server.
+    - **Advantages:** (Not fully listed in your notes, but generally include)
+        - Easy to install and wire.
+        - No disruptions to the network when connecting or removing devices.
+        - Easy to detect faults and to remove parts.
+    - **Disadvantages:** (Not fully listed in your notes, but generally include)
+	        - If the central device fails, the entire network is affected.
+        - Requires more cable than a bus topology.
+        - Can be more expensive due to the cost of the central devices.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+3. **Ring Topology:**
+
+	- **Description:** In a ring topology, each computer is connected to two other computers, forming a circular data path. Each packet of data travels around the ring until it reaches its destination.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Advantages:**
+	- Data packets travel at great speeds.
+	- No collisions since each packet has a clear path to follow.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Disadvantages:**
+	- A failure in any cable or device breaks the loop and can take down the entire network.
+	- It is more difficult to add or remove computers without affecting the network.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+5. **Mesh Topology:**
+    
+    - **Description:** In a mesh topology, each computer is connected to every other computer, creating a network with multiple paths between any two nodes.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Advantages:**
+	- Provides high redundancy and reliability. If one path fails, data can be rerouted through another.
+	- Great for ensuring that there is no interruption in data flow.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Disadvantages:**
+	- Can be costly and complex due to the number of cables and ports required.
+	- Network setup and reconfiguration can be difficult.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+5. **Hybrid Topology:**
+    
+- **Description:** A hybrid topology combines two or more different topologies to form a resultant topology which has the advantages (and sometimes disadvantages) of all the constituent basic topologies rather than having characteristics of one specific topology.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Advantages:**
+	- Flexible, as it can be designed according to the requirements of the organization.
+	- Scalable, as additional components can be added without affecting existing architecture.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Disadvantages:**
+	- Can be more complex to design and maintain.
+	- The cost may be higher due to the complexity and the variety of equipment needed.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+####  Differentiate between LAN and WAN.
+
+**Local Area Network (LAN):**
+
+1. **Area Covered:** LANs are designed to cover a small geographic area, such as a home, office, or a building.
+2. **Data Transfer Rates:** LANs typically have higher data transfer rates, ranging from 10 Mbps to 1 Gbps and even more.
+3. **Error Rates:** LANs generally have lower error rates due to the shorter distances and fewer devices involved.
+5. **Cost:** Setting up a LAN is less expensive compared to WAN.
+6. **Management:** LANs are easier to manage due to their smaller size and the proximity of connected devices.
+7. **Ownership:** LANs are usually privately owned.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Wide Area Network (WAN):**
+
+1. **Area Covered:** WANs cover a large geographic area, which can span cities, states, or even countries and continents.
+2. **Data Transfer Rates:** WANs have lower data transfer rates compared to LANs.
+3. **Error Rates:** WANs tend to have higher error rates due to the longer distances data must travel and the involvement of multiple networks.
+4. **Cost:** Establishing a WAN is more expensive due to the infrastructure required to connect distant locations.
+5. **Management:** WANs are more complex to manage and maintain, often requiring specialized staff and equipment.
+6. **Ownership:** WANs can be either public or privately owned.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Define network architecture. Differentiate between client server and peer to peer networks
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Network architecture refers to the design and layout of a network, including the physical components, such as cables and switches, and the software, such as protocols and services, that enable data transmission and network services. It is the conceptual framework that defines the structure, behavior, and more of a network.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+There are two primary types of network architectures:
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **Client-Server Network:**
+
+- **Description:** In a client-server network, the network is managed by a central server that provides services, such as data storage, email, web pages, and applications, to client computers. The server has high processing power and storage capacity.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Characteristics:**
+	- Centralized control: The server administers the network, managing user access, network security, and data.
+	- Scalability: New resources and clients can be easily added to the network.
+	- Maintenance: Centralized servers simplify backup and updates.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Advantages:**
+	- Efficient resource sharing.
+	- Centralized security and administration.
+	- Easier to backup or manage data.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Disadvantages:**
+	- The central server represents a single point of failure.
+	- Can be expensive to set up and maintain.
+	- Traffic congestion can occur if many clients access the server simultaneously.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+2. **Peer-to-Peer Network:**
+
+- **Description:** In a peer-to-peer (P2P) network, each computer, known as a peer, can act as both a client and a server. Peers can share resources amongst each other without the need for a central server.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Characteristics:**
+	- Decentralized control: Each peer is independent, and there is no central authority.
+	- Direct data exchange: Peers can share files directly with each other.
+	- Easy setup: P2P networks are simple to configure and can be less expensive than client-server networks.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Advantages:**
+	- Reduced costs because no dedicated server is required.
+	- Simple to set up and maintain.
+	- Each peer can make its resources available to others.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Disadvantages:**
+	- Not as scalable as client-server networks.
+	- Each computer must be maintained separately, which can be cumbersome.
+	- Less secure, as each peer is open to other peers on the network.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Differentiate between Simplex, Half Duplex and Full Duplex.
+
+1. **Simplex Communication:**
+    
+    - **Description:** In simplex communication, the data transmission is unidirectional. That is, the signal or data can travel in only one direction from the sender to the receiver and not the other way around.
+    - **Example:** A good example of simplex communication is a keyboard to a computer, where information is entered from the keyboard into the computer system but does not travel back to the keyboard.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **Half Duplex Communication:**
+    
+    - **Description:** Half duplex allows data transmission in both directions, but not simultaneously. At any given time, the signal can travel in only one direction, which means the devices must take turns when sending and receiving data.
+    - **Example:** Walkie-talkies are a classic example of half duplex communication where one person speaks while the other listens and then they switch roles.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+3. **Full Duplex Communication:**
+    
+    - **Description:** Full duplex communication supports data transmission in both directions at the same time. Both the sender and receiver can communicate and send data simultaneously.
+    - **Example:** A telephone conversation is an example of full duplex communication where both parties can talk and listen at the same time.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Differentiate between internet and intranet.
+
+**Internet:**
+
+1. **Nature:** The Internet is a public network, accessible by anyone around the world.
+2. **Users:** Internet users are diverse and may have little to no knowledge about a specific company or organization.
+3. **Purpose:** The Internet is mainly used to find out information, communicate, and access a wide range of services.
+4. **Content:** It contains a tremendous amount of information on virtually any subject, provided by various sources.
+5. **Bandwidth:** The Internet requires higher bandwidth due to the vast amount of data and the global scale of access and communication.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Intranet:**
+
+1. **Nature:** An Intranet is a private network, used within a company or organization.
+2. **Users:** Intranet users are typically employees of the organization who are familiar with the company's structure and terminology.
+3. **Purpose:** The Intranet is used for everyday work within the company, such as sharing internal documents and information.
+4. **Content:** It hosts official documents, project reports, human resources information, and other detailed internal data.
+5. **Bandwidth:** An Intranet can operate on lower to mid-bandwidth because it is used internally and does not require the same level of data transfer as the Internet.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Advantages of an Intranet:**
+
+- Enhances workforce productivity by making information easily accessible to employees.
+- Saves time by providing information to employees on demand.
+- Serves as a powerful tool for internal communication within an organization.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+The notes also mention an **Extranet**, which is a private intranet that can be accessed by authorized external users over a secure channel, combining elements of the public Internet and the closed Intranet.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### What is Internet addressing? Discuss Network Tool. 
+
+**Internet Addressing:** Internet addressing refers to the methods used to identify and locate computers on the Internet. Each device connected to the Internet requires a unique address to communicate with other devices. The most common types of Internet addresses include:
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **IP Address:** An Internet Protocol (IP) address is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. There are two versions of IP addresses: IPv4, which is based on a 32-bit address scheme, and IPv6, which is based on a 128-bit address scheme.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+2. **Domain Name:** A domain name is a human-readable address used to access websites on the Internet. It is part of the URL (Uniform Resource Locator) that specifies addresses on the World Wide Web. Domain names are translated to IP addresses by the Domain Name System (DNS) to locate the corresponding website's server.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Network Tool:** A network tool can refer to any software that assists with network-related tasks, such as network diagnostics, performance measurement, and network management. Examples of network tools include:
+
+1. **Ping:** A utility used to test the reachability of a host on an IP network and to measure the round-trip time for messages sent from the originating host to a destination computer.
+    
+2. **Traceroute:** A network diagnostic tool used to track the pathway taken by a packet on an IP network from source to destination, reporting the IP addresses of all the routers it pinged in between.
+    
+3. **Wireshark:** A network protocol analyzer that lets you capture and interactively browse the traffic running on a computer network.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+4. **Netstat:** A command-line tool that displays network connections (both incoming and outgoing), routing tables, and a number of network interface statistics.
+    
+5. **Network Scanners:** Tools like Nmap are used to discover devices running on a network and to identify open ports and services.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#####  **_What do you mean by transmission media? Explain the different types of transmission media used_** **_in computer network?_**
+
+Transmission media in the context of computer networks refers to the physical pathways that connect computers, other devices, and people on a network. It is the channel through which data is transmitted from one place to another. The two main categories of transmission media used in computer networks are:
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **Wired or Guided Media or Bound Transmission Media:**
+    
+    - **Description:** This involves the use of physical cables and is characterized by the transmission of data through a conductive medium such as copper wire or optical fiber.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- Types:
+     - **Coaxial Cable:** Consists of a central wire conductor surrounded by a non-conductive insulating material, a metallic shield, and an outer insulating layer. It's commonly used for cable television systems.
+    - **Twisted Pair Cable:** Comprises pairs of insulated copper wires twisted together. It's used in telecommunication networks and standard Ethernet networks.
+    - **Fiber Optic Cable:** Uses light to transmit data over long distances at high speeds. It consists of a core surrounded by a cladding layer, both made of glass or plastic.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **Unbound (Unguided) Media or Wireless Transmission Media:**
+    
+    - **Description:** This involves the transmission of data through the air or space using electromagnetic signals without the use of a physical conductor.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- **Types:**
+    - **Radio Waves:** Used for wireless transmission over short and long distances, suitable for WLANs, broadcasting, and cellular networks.
+    - **Microwaves:** Electromagnetic waves with high frequencies that can be directed in narrow beams and are used for point-to-point communication systems.
+    - **Infrared:** A type of electromagnetic radiation used for short-range communication such as in remote controls and some wireless networking technologies.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Each type of transmission media has its own set of characteristics, including bandwidth capacity, propagation speed, cost, and ease of installation and maintenance. The choice of transmission media depends on factors such as the required data transmission speed, distance, cost, and the environment in which the network is to operate.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Define the following terms : 
+- a)Repeater
+- b) Bridge 
+- c) Protocol 
+- d) Router 
+- e) Satellite 
+- f) Microwave System 
+- g) Subnet Mask 
+- h) MAC address 
+- i) Coaxial Cable
+- j)Fiber Optic Cable
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **Repeater:**
+    
+    - A repeater is a network device that regenerates and propagates electrical signals to extend the reach of a network. It works at the physical layer of the OSI model and is used when the distance between two network devices exceeds the maximum transmission distance of the media.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+1. **Bridge:**
+    
+    - A bridge is a network device that connects two or more network segments, operating at the data link layer of the OSI model. It filters traffic by looking at the MAC addresses of the devices on each segment and decides whether to forward or block the traffic based on the MAC address table it builds.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+3. **Protocol:**
+    
+    - A protocol is a set of rules and conventions for communication that defines how data is to be transmitted and received across a network. Protocols ensure that hardware and software from different vendors can work together, enabling interoperability.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+4. **Router:**
+    
+    - A router is a network device that forwards data packets between computer networks, creating an overlay internetwork. It operates at the network layer of the OSI model and determines the best path for data packets to travel across an interconnected set of networks.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+5. **Satellite:**
+    
+    - A satellite in networking is a type of microwave repeater in space. It receives signals transmitted from an earth station, amplifies them, and retransmits them back to another location on Earth. Satellites are used for long-distance communication, broadcasting, and other types of data transmission.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+6. **Microwave System:**
+    
+    - A microwave system transmits data using high-frequency radio waves. It typically involves a line-of-sight communication path between relay stations equipped with microwave antennas, commonly used for point-to-point communication links.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+7. **Subnet Mask:**
+    
+    - A subnet mask is a number that defines a range of IP addresses available within a network segment. It is used in IP networking to separate the network address portion of an IP address from the host address portion.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+8. **MAC Address:**
+    
+    - A MAC (Media Access Control) address is a unique identifier assigned to network interfaces for communications at the data link layer of a network segment. It is used as a network address for most IEEE 802 network technologies, including Ethernet and Wi-Fi.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+9. **Coaxial Cable:**
+    
+    - Coaxial cable is a type of electrical cable consisting of a central conductor, an insulating layer, a metallic shield, and an insulating outer jacket. It's used for transmitting television signals, internet connectivity, and other data with high resistance to signal interference.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+10. **Fiber Optic Cable:**
+    
+    - Fiber optic cable is a network cable that contains strands of glass fibers inside an insulated casing. It's designed for long-distance, high-performance data networking, and telecommunications, offering higher bandwidth and transmitting data over longer distances than coaxial and twisted pair cables.
+</div></script></section></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":false,"slideNumber":true,"transition":"convex","transitionSpeed":"normal"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
